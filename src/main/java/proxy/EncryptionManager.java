@@ -255,9 +255,11 @@ public class EncryptionManager {
         // get keys
         attempt(() -> clientAuthenticator.getClientProfileKeyPair(this));
 
+        /*
         // verify the connecting client connection is who they claim to be
         boolean server = disconnectOnError(() -> new ServerAuthenticator(username).makeRequest(generateServerHash()));
         if (!server) { return; }
+        */
 
         // encryption confirmation
         attempt(() -> {
@@ -305,6 +307,7 @@ public class EncryptionManager {
      * future traffic.
      */
     private void sendReplacementEncryptionConfirmation() {
+        /*
         if (shouldAuthenticate) {
             // authenticate the client so that the remote server will accept us
             boolean client = disconnectOnError(() -> clientAuthenticator.makeRequest(generateServerHash()));
@@ -314,6 +317,7 @@ public class EncryptionManager {
             boolean server = disconnectOnError(() -> new ServerAuthenticator(username).makeRequest(generateServerHash()));
             if (!server) { return; }
         }
+        */
 
         // encryption confirmation
         attempt(() -> {
